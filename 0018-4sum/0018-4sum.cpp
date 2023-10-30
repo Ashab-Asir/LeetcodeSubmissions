@@ -2,42 +2,25 @@ class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         vector<vector<int>>ans;
-        sort(nums.begin(),nums.end());
+        set<vector<int>>st2;
         for(int i=0;i<nums.size();i++){
-            if(i>0 && nums[i]==nums[i-1]){
-                continue;
-            }
             for(int j=i+1;j<nums.size();j++){
-                if(j>i+1 && nums[j]==nums[j-1]){
-                    continue;
-                }
-                int k=j+1,l=nums.size()-1;
-                    while(k<l){
-                        long long total=nums[i];
-                        total+=nums[j];
-                        total+=nums[k];
-                        total+=nums[l];
-                        if(total<target){
-                            k++;
-                        }
-                        else if(total>target){
-                            l--;
-                        }
-                        else{
-                            vector<int>temp={nums[i],nums[j],nums[k],nums[l]};
-                            ans.push_back(temp);
-                            k++;
-                            l--;
-                            while(k<l && nums[k]==nums[k-1]){
-                                k++;
-                            }
-                            while(k<l && nums[l]==nums[l+1]){
-                                l--;
-                            }
-                        }
+                set<long long>st1;
+                for(int k=j+1;k<nums.size();k++){
+                    long long total=nums[i];
+                    total+=nums[j];
+                    total+=nums[k];
+                    long long x=target-total;
+                    if(st1.find(x)!=st1.end()){
+                        vector<int>temp={nums[i],nums[j],nums[k],(int)x};
+                        sort(temp.begin(),temp.end());
+                        st2.insert(temp);
                     }
+                    st1.insert(nums[k]);
+                }
             }
         }
+        ans={st2.begin(),st2.end()};
         return ans;
     }
 };
