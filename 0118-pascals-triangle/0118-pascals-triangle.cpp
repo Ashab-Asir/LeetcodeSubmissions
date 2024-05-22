@@ -1,22 +1,24 @@
 class Solution {
 public:
- vector<int>printRow(int rowIndex){
-            vector<int>row;
-            long long ans=1;
-            row.push_back(ans);
-            for(int i=1;i<rowIndex;i++){
-                ans=ans*(rowIndex-i);
-                ans=ans/i;
-                row.push_back(ans);
-            }
-            return row;
+    vector<int>genarateRow(int row){
+        vector<int>temp;
+        int ans=1;
+        temp.push_back(ans);
+        for(int col=1;col<row;col++){
+            ans*=(row-col);
+            ans/=col;
+            temp.push_back(ans);
         }
+        return temp;
+    }
+    void solve(int numRow,vector<vector<int>>&ans){
+        for(int i=1;i<=numRow;i++){
+            ans.push_back(genarateRow(i));
+        }
+    }
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>>ans;
-        for(int i=1;i<=numRows;i++){
-            vector<int>temp=printRow(i);
-            ans.push_back(temp);
-        }
+        solve(numRows,ans);
         return ans;
     }
 };
