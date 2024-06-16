@@ -5,7 +5,7 @@ public:
         int ans=0;
         int i=0;
         while(maxReach<n){
-            if(nums[i]<=maxReach+1){
+            if(i<nums.size() && nums[i]<=maxReach+1){
                 maxReach+=nums[i];
                 i++;
             }
