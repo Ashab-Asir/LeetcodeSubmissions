@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int bouquets(vector<int>bloomDay,int mid,int k){
-        int bouqetsCnt=0;
+    int makeBouquets(int mid,vector<int>bloomDay,int k){
+        int bouquetsCnt=0;
         for(int i=0;i<bloomDay.size();i++){
             bloomDay[i]=bloomDay[i]-mid;
         }
@@ -10,26 +10,24 @@ public:
             if(bloomDay[i]<=0){
                 cnt++;
                 if(cnt==k){
-               bouqetsCnt+=1;
-               cnt=0;
-            }
+                    bouquetsCnt++;
+                    cnt=0;
+                }
             }
             else{
                 cnt=0;
             }
         }
-        return bouqetsCnt;
+        return bouquetsCnt;
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
-        int ans=-1;
-        int maxi=INT_MIN;
+        int ans=-1,low=0,high=INT_MIN;
         for(int i=0;i<bloomDay.size();i++){
-            maxi=max(bloomDay[i],maxi);
+            high=max(high,bloomDay[i]);
         }
-        int low=1,high=maxi;
         while(low<=high){
-            int mid=(low+high)/2;
-            if(bouquets(bloomDay,mid,k)>=m){
+            int mid=low+(high-low)/2;
+            if(makeBouquets(mid,bloomDay,k)>=m){
                 ans=mid;
                 high=mid-1;
             }
