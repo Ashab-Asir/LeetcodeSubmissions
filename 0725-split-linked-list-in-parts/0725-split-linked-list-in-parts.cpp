@@ -29,7 +29,9 @@ public:
                 prev=curr;
                 curr=curr->next;
             }
-            prev->next=NULL;
+            if(prev!=NULL){
+                prev->next=NULL;
+            }
             remainNodes--;
         }
         return ans;
