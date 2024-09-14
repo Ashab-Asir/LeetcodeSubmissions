@@ -3,7 +3,7 @@ public:
     int longestSubarray(vector<int>& nums) {
         int maxVal=INT_MIN;
         for(int i=0;i<nums.size();i++){
-            if(nums[i]>maxVal){
+            if(nums[i]>=maxVal){
                 maxVal=nums[i];
             }
         }
@@ -18,6 +18,6 @@ public:
                 streak=0;
             }
         }
-        return result;
+        return max(result,streak);
     }
 };
