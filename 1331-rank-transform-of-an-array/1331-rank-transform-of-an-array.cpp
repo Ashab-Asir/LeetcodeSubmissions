@@ -12,7 +12,7 @@ public:
             cout<<element.first<< " ";
             for(int i=0;i<element.second.size();i++){
                 int ind=element.second[i];
-                ans[i]=rank;
+                ans[ind]=rank;
             }
             rank++;
         }
