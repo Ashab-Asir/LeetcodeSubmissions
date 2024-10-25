@@ -16,8 +16,8 @@ public:
                 ans.push_back(folder[i]);
             }
             else if(folder[i].size() > prev.size()){
-                string sub=folder[i].substr(0,prev.size());
-                if(sub==prev){
+                string sub=folder[i].substr(0,prev.size()+1);
+                if(sub==prev+'/'){
                     continue;
                 }
                 else{
