@@ -2,9 +2,9 @@ class Solution {
 public:
     int longestSquareStreak(vector<int>& nums) {
         sort(nums.begin(),nums.end());
-        map<int,int>mp;
+        set<int>st;
         for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
+            st.insert(nums[i]);
         }
         int maxi=-1;
         for(int i=0;i<nums.size();i++){
@@ -16,7 +16,7 @@ public:
                 num=x;
             }
             while(true){ 
-                if(mp.find(num)!=mp.end()){
+                if(st.find(num)!=st.end()){
                     cnt++;
                     sqrtRoot=sqrt(num);
                     if(sqrtRoot*sqrtRoot==num){
@@ -35,6 +35,6 @@ public:
                 }
             }
         }
-        return maxi==0?-1:maxi;
+        return maxi<=1?-1:maxi;
     }
 };
