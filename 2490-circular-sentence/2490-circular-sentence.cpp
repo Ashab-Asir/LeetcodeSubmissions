@@ -16,14 +16,14 @@ public:
             string currentWord = words[i];
             if (i != words.size() - 1) {
                 string nextWord = words[i + 1];
-                if (tolower(currentWord[currentWord.size() - 1]) !=
-                    tolower(nextWord[0])) {
+                if ((currentWord[currentWord.size() - 1]) !=
+                    (nextWord[0])) {
                     return false;
                 }
             } else {
                 string nextWord = words[0];
-                if (tolower(currentWord[currentWord.size() - 1]) !=
-                    tolower(nextWord[0])) {
+                if ((currentWord[currentWord.size() - 1]) !=
+                    (nextWord[0])) {
                     return false;
                 }
             }
