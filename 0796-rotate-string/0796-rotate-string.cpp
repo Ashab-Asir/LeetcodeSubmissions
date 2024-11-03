@@ -4,6 +4,9 @@ public:
         if(s.size()!=goal.size()){
             return false;
         }
+        if(s==goal){
+            return true;
+        }
         string tempStr1=s,tempStr2=goal;
         sort(tempStr1.begin(),tempStr1.end());
         sort(tempStr2.begin(),tempStr2.end());
