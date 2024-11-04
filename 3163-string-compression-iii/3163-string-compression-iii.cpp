@@ -19,8 +19,10 @@ public:
                 cnt = 1;
             }
         }
-        ans += to_string(cnt);
-        ans += word[word.size() - 1];
+        if (cnt != 0) {
+            ans += to_string(cnt);
+            ans += word[word.size() - 1];
+        }
         return ans;
     }
 };
