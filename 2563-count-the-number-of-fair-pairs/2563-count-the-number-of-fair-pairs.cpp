@@ -6,7 +6,7 @@ public:
         for(int i=0;i<nums.size();i++){
             v.push_back(nums[i]);
         }
-        int ans=0;
+        long long ans=0;
         for(int i=0;i<nums.size();i++){
             v.pop_front();
             auto low=lower_bound(v.begin(),v.end(),lower-nums[i]);
