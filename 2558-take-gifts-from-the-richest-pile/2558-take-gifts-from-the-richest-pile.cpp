@@ -6,7 +6,7 @@ public:
             sort(gifts.begin(),gifts.end());
             gifts[n-1]=sqrt(gifts[n-1]);
         }
-        int ans=0;
+        long long ans=0;
         for(int i=0;i<gifts.size();i++){
             ans+=gifts[i];
         }
