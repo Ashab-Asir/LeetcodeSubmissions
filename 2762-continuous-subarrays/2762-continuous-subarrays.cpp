@@ -3,7 +3,7 @@ public:
     long long continuousSubarrays(vector<int>& nums) {
         map<int,int>mp;
         int n=nums.size();
-        int cnt=0;
+        long long cnt=0;
         int i=0,j=0;
         while(j<n){
             mp[nums[j]]++;
